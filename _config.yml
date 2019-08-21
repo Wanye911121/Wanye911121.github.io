@@ -3,10 +3,10 @@
 #
 
 # Name of your site (displayed in the header)
-name: Wanye修行之路
+name: Wanye的修行之路
 
 # Short bio or description (displayed in the header)
-description: Web Developer from Somewhere
+description: iOS Developer 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVDkUZP6cpzzyW9J-F6Wi6lcWCKvpcy2hqyUTs7Vhbluh-HyfdQ
@@ -20,7 +20,7 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: barryclark/jekyll-now
+  github: https://github.com/Wanye911121
   instagram:
   linkedin:
   pinterest:
