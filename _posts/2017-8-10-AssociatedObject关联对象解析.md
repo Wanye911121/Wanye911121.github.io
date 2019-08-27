@@ -9,7 +9,7 @@
 
 ## 相关函数
 
-```
+```objectivec
 用于给对象添加关联对象，传入 nil 则可以移除已有的关联对象；
 void objc_setAssociatedObject ( id object, const void *key, id value, objc_AssociationPolicy policy );
 
@@ -41,7 +41,7 @@ objc_setAssociatedObject(obj, @selector(hello), @"Hello", OBJC_ASSOCIATION_RETAI
 
 ### objc_setAssociatedObject
 
-```
+```objectivec
 void _object_set_associative_reference(id object, void *key, id value, uintptr_t policy) {
     ObjcAssociation old_association(0, nil);
     id new_value = value ? acquireValue(value, policy) : nil;
@@ -70,7 +70,7 @@ void _object_set_associative_reference(id object, void *key, id value, uintptr_t
 
 ### objc_getAssociatedObject
 
-```
+```objectivec
 id _object_get_associative_reference(id object, void *key) {
     id value = nil;
     uintptr_t policy = OBJC_ASSOCIATION_ASSIGN;
@@ -117,7 +117,7 @@ id _object_get_associative_reference(id object, void *key) {
 
 ## 具体使用
 
-```
+```objectivec
 #import <objc/runtime.h>
 
 @implementation DKObject (Category)
@@ -136,7 +136,7 @@ id _object_get_associative_reference(id object, void *key) {
 >这里的 _cmd 代指当前方法的选择子，也就是 @selector(categoryProperty)
 
 ### objc_AssociationPolicy
-	
+
 | objc_AssociationPolicy | modifier |
 | --- | --- |
 | OBJC_ASSOCIATION_ASSIGN | assign |
@@ -148,6 +148,5 @@ id _object_get_associative_reference(id object, void *key) {
 ## 为什么分类添加属性不会自动生成实例变量和getset方法
 
 答：**因为类的内存布局是在编译期决定的，实例变量的布局已经固定**，使用 @property 已经无法向固定的布局中添加新的实例变量。所以我们需要使用关联对象以及两个方法来模拟构成属性的三个要素。
-
 
 ## 相关链接
