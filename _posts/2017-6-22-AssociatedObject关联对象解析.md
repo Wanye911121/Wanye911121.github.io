@@ -5,7 +5,7 @@ date: 2017-06-22
 author: Wanye
 cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 categories: 技术
-tags: AssociatedObject, Runtime, Objectiv-C, iOS进阶
+tags: AssociatedObject Runtime Objectiv-C iOS进阶
 ---
 
 # 关联对象(AssociatedObject)
