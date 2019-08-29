@@ -1,3 +1,12 @@
+---
+layout: post
+title: 'AssociatedObject关联对象'
+date: 2017-06-22
+author: Wanye
+cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
+categories: 技术
+tags: AssociatedObject, Runtime, Objectiv-C, iOS进阶
+---
 
 # 关联对象(AssociatedObject)
 
@@ -37,11 +46,11 @@ void objc_removeAssociatedObjects ( id object );
 
 objc_setAssociatedObject(obj, @selector(hello), @"Hello", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-![910b3750b37f9d7059da617d6a9a0cc2.png](evernotecid://E7D2FF97-88A4-42B7-84F6-918A5CCFFB22/appyinxiangcom/25896710/ENResource/p129)
+![910b3750b37f9d7059da617d6a9a0cc2.png](../2017/06/associate1.png)
 
-### objc_setAssociatedObject
+### objc_setAssociatedObject实现
 
-```objectivec
+```c
 void _object_set_associative_reference(id object, void *key, id value, uintptr_t policy) {
     ObjcAssociation old_association(0, nil);
     id new_value = value ? acquireValue(value, policy) : nil;
@@ -68,7 +77,7 @@ void _object_set_associative_reference(id object, void *key, id value, uintptr_t
 
 * new_value == nil(删除一个关联对象)，删除对应key的关联对象。调用**erase**方法，擦除 ObjectAssociationMap 中 key 对应的节点。
 
-### objc_getAssociatedObject
+### objc_getAssociatedObject实现
 
 ```objectivec
 id _object_get_associative_reference(id object, void *key) {
@@ -103,7 +112,7 @@ id _object_get_associative_reference(id object, void *key) {
 4. 根据 **policy** 调用相应的方法
 5. 返回关联对象 ObjcAssociation 的值
 
-### objc_removeAssociatedObjects
+### objc_removeAssociatedObjects实现
 
 为了加速移除对象的关联对象的速度，我们会通过标记位 **has_assoc** 来避免不必要的方法调用，在确认了对象和关联对象的存在之后，才会调用 _object_remove_assocations 方法移除对象上所有的关联对象
 
