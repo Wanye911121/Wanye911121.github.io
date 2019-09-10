@@ -46,7 +46,7 @@ void objc_removeAssociatedObjects ( id object );
 
 objc_setAssociatedObject(obj, @selector(hello), @"Hello", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-![910b3750b37f9d7059da617d6a9a0cc2.png](../2017/06/associate1.png)
+![associate1.png](/assets/img/associate1.png)
 
 ### objc_setAssociatedObject实现
 
